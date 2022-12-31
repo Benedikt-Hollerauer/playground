@@ -1,8 +1,10 @@
-ThisBuild / version := "0.1.0-SNAPSHOT"
-
-ThisBuild / scalaVersion := "3.2.1"
-
 lazy val root = (project in file("."))
     .settings(
-        name := "scala"
+        name := "scala",
+        scalaVersion := "3.2.1",
+        libraryDependencies ++= notionApi
     )
+
+val notionApi = Seq(
+    "com.github.seratch" % "notion-sdk-jvm-core" % "1.7.2"
+)
