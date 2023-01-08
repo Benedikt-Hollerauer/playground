@@ -8,6 +8,8 @@ app.get('/', (req: Request, res: Response) => {
     res.send("Hello World")
 })
 
+console.log("go to: http://localhost:8080/")
+
 app.listen(process.env.PORT)
 
 const databaseId: string = process.env.NOTION_DATABASE_ID as string
