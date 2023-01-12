@@ -100,6 +100,22 @@ export async function createSale(saleIds: SaleIds, sale: Sale): Promise<CreatePa
                         }
                     }
                 ]
+            },
+            [saleIds.sellingPriceId]: {
+                number: sale.sellingPrice 
+            },
+            [saleIds.sellingCostsId]: {
+                number: sale.sellingCosts
+            },
+            [saleIds.dateId]: {
+                date: {
+                    start: sale.date.toISOString()
+                }
+            },
+            [saleIds.platformId]: {
+                select: {
+                    
+                }
             }
         }    
     })
