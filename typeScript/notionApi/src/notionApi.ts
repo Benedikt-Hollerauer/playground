@@ -111,12 +111,12 @@ export async function createSale(saleIds: SaleIds, sale: Sale): Promise<CreatePa
                 date: {
                     start: sale.date.toISOString()
                 }
-            },
-            [saleIds.platformId]: {
-                select: {
+            }//,
+            //[saleIds.platformId]: {
+                //select: {
                     
-                }
-            }
+                //}
+            //}
         }    
     })
 }

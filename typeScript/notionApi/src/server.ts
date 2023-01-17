@@ -27,7 +27,9 @@ const sale: Sale = new Sale(
     Platform.EbayClassifieds
 )
 
-createSale(saleIds, sale).then(x => console.log(x))
+// createSale(saleIds, sale).then(x => console.log(x))
+
+retrieveDatabase(saleIds.databaseId).then(x => console.log(x.properties.Platform.select.options[0]))
 
 console.log("go to: http://localhost:8080/")
 
