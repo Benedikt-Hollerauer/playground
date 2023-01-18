@@ -64,9 +64,21 @@ export class Sale {
 }
 
 export async function retrieveDatabase(databaseId: string): Promise<GetDatabaseResponse> {
-    return await notion.databases.retrieve({
+    const database = await notion.databases.retrieve({
         database_id: databaseId
     })
+
+    console.log(database.properties.Tags)
+
+    return database
+}
+
+export function test(properties: GetDatabaseResponse) {
+    return test: {} = Object.values(properties.properties)
+        .reduce((obj, property) => {
+            const { id, ...rest } = property
+            return { ...obj, [id]: rest }
+        }, {})
 }
 
 export async function queryDatabase(databaseId: string): Promise<QueryDatabaseResponse> {
