@@ -73,12 +73,13 @@ export async function retrieveDatabase(databaseId: string): Promise<GetDatabaseR
     return database
 }
 
-export function test(properties: GetDatabaseResponse) {
-    return test: {} = Object.values(properties.properties)
+export function getTags(properties: GetDatabaseResponse) {
+    const test: { "yZ%5D%3C"?: {select?: { options?: [ [Object], [Object] ] } } } = Object.values(properties.properties)
         .reduce((obj, property) => {
             const { id, ...rest } = property
             return { ...obj, [id]: rest }
         }, {})
+    return test["yZ%5D%3C"]?.select?.options
 }
 
 export async function queryDatabase(databaseId: string): Promise<QueryDatabaseResponse> {
@@ -123,12 +124,12 @@ export async function createSale(saleIds: SaleIds, sale: Sale): Promise<CreatePa
                 date: {
                     start: sale.date.toISOString()
                 }
-            }//,
-            //[saleIds.platformId]: {
-                //select: {
-                    
-                //}
-            //}
+            },
+            [saleIds.platformId]: {
+                select: {
+                    id: "ZiQb"
+                }
+            }
         }    
     })
 }

@@ -1,6 +1,6 @@
 require("dotenv").config({ path: "./.env" })
 import express, { Request, Response } from "express"
-import { createSale, Platform, queryDatabase, retrieveDatabase, Sale, SaleIds, test } from "./notionApi"
+import { createSale, Platform, queryDatabase, retrieveDatabase, Sale, SaleIds, getTags } from "./notionApi"
 
 const app = express()
 
@@ -27,11 +27,11 @@ const sale: Sale = new Sale(
     Platform.EbayClassifieds
 )
 
-// createSale(saleIds, sale).then(x => console.log(x))
+createSale(saleIds, sale).then(x => console.log(x))
 
-const platformId = process.env.PLATFORM_ID as string
-
-retrieveDatabase(saleIds.databaseId).then(x => test(x)[platformId])
+retrieveDatabase(saleIds.databaseId).then(x =>
+    console.log(getTags(x))
+)
 
 console.log("go to: http://localhost:8080/")
 
