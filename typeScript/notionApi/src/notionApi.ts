@@ -4,8 +4,8 @@ import { CreatePageResponse, GetDatabaseResponse, QueryDatabaseResponse } from "
 const notion = new Client({auth: process.env.NOTION_API_KEY as string})
 
 export enum Platform {
-    Private,
-    EbayClassifieds
+    Private = "Private",
+    EbayClassifieds = "EbayClassifieds"
 }
 
 export class SaleIds {
@@ -68,7 +68,7 @@ export async function retrieveDatabase(databaseId: string): Promise<GetDatabaseR
         database_id: databaseId
     })
 
-    console.log(database.properties.Tags)
+    console.log(database.properties.Platform)
 
     return database
 }
@@ -127,7 +127,7 @@ export async function createSale(saleIds: SaleIds, sale: Sale): Promise<CreatePa
             },
             [saleIds.platformId]: {
                 select: {
-                    id: "ZiQb"
+                    name: sale.platform 
                 }
             }
         }    

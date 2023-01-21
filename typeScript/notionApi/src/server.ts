@@ -15,7 +15,7 @@ const saleIds: SaleIds = new SaleIds(
     process.env.SELLING_PRICE_ID as string,
     process.env.SELLING_COSTS_ID as string,
     process.env.DATE_ID as string,
-    process.env.PLATFROM_ID as string
+    "Platform"
 )
 
 const sale: Sale = new Sale(
