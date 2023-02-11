@@ -7,10 +7,10 @@ import scala.util.{Failure, Success, Try}
 
 object NotionApi extends App:
 
-	val client = NotionClient("")
+	val client = NotionClient("secret_EZUQxCoJNSQNVDm5zef6wd3XVtyo10WuuWhuwHzDQCV")
 
 	val querySalesMonitoring = Try(
-		client.queryDatabase("", null, null, null, null)
+		client.queryDatabase("82dc8f768b12406a918c74d71d59a631", null, null, null, null)
 	)
 
 	querySalesMonitoring match
