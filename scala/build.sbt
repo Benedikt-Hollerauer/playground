@@ -1,7 +1,7 @@
 lazy val root = (project in file("."))
     .settings(
         name := "scala",
-        scalaVersion := "3.2.1",
+        scalaVersion := "3.2.2",
         libraryDependencies ++= notionApi
     )
 
